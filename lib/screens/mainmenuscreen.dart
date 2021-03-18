@@ -2,6 +2,9 @@ import 'package:carousel_pro/carousel_pro.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_demo/screens/itempage.dart';
 import 'package:firebase_demo/screens/mainMenuGrid.dart';
+import 'package:firebase_demo/screens/productScreens/Clothing.dart';
+import 'package:firebase_demo/screens/productScreens/groceries.dart';
+import 'package:firebase_demo/screens/productScreens/houseHold.dart';
 import 'package:flutter/material.dart';
 
 class MainMenuScreen extends StatefulWidget {
@@ -110,29 +113,42 @@ class _MainMenuScreenState extends State<MainMenuScreen>
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
-                    Card(
-                      elevation: 0,
-                      child: Container(
-                        height: 300,
-                        child: Column(children: [
-                          Image.network(
-                            "https://icms-image.slatic.net/images/ims-web/808352fd-4cc2-4e75-b1f1-04096b41c3a7.gif",
-                          ),
-                          Padding(
-                            padding: const EdgeInsets.all(5.0),
-                            child: Center(
-                              child: Text('Groceries',
-                                  style: TextStyle(
-                                    fontSize: 32,
-                                  )),
-                              // "https://icms-image.slatic.net/images/ims-web/c4996812-5311-4450-9df5-45bb2dba26a0.gif",
+                    GestureDetector(
+                      onTap: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (context) => Groceries()),
+                        );
+                      },
+                      child: Card(
+                        elevation: 0,
+                        child: Container(
+                          height: 300,
+                          child: Column(children: [
+                            Image.network(
+                              "https://icms-image.slatic.net/images/ims-web/808352fd-4cc2-4e75-b1f1-04096b41c3a7.gif",
                             ),
-                          ),
-                        ]),
+                            Padding(
+                              padding: const EdgeInsets.all(5.0),
+                              child: Center(
+                                child: Text('Groceries',
+                                    style: TextStyle(
+                                      fontSize: 32,
+                                    )),
+                                // "https://icms-image.slatic.net/images/ims-web/c4996812-5311-4450-9df5-45bb2dba26a0.gif",
+                              ),
+                            ),
+                          ]),
+                        ),
                       ),
                     ),
                     GestureDetector(
-                      onTap: () {},
+                      onTap: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (context) => Clothing()),
+                        );
+                      },
                       child: Card(
                         elevation: 0,
                         child: Container(
@@ -154,24 +170,32 @@ class _MainMenuScreenState extends State<MainMenuScreen>
                         ),
                       ),
                     ),
-                    Card(
-                      elevation: 0,
-                      child: Container(
-                        height: 300,
-                        child: Column(children: [
-                          Image.network(
-                            "https://icms-image.slatic.net/images/ims-web/3596ac26-8b05-4dec-8dbb-a7d7dc12c9b0.gif",
-                          ),
-                          Padding(
-                            padding: const EdgeInsets.all(5.0),
-                            child: Center(
-                              child: Text('House Hold',
-                                  style: TextStyle(
-                                    fontSize: 32,
-                                  )),
+                    GestureDetector(
+                      onTap: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (context) => HouseHold()),
+                        );
+                      },
+                      child: Card(
+                        elevation: 0,
+                        child: Container(
+                          height: 300,
+                          child: Column(children: [
+                            Image.network(
+                              "https://icms-image.slatic.net/images/ims-web/3596ac26-8b05-4dec-8dbb-a7d7dc12c9b0.gif",
                             ),
-                          ),
-                        ]),
+                            Padding(
+                              padding: const EdgeInsets.all(5.0),
+                              child: Center(
+                                child: Text('House Hold',
+                                    style: TextStyle(
+                                      fontSize: 32,
+                                    )),
+                              ),
+                            ),
+                          ]),
+                        ),
                       ),
                     ),
                     Card(
