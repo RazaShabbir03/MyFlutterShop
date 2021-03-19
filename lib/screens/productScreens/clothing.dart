@@ -1,3 +1,4 @@
+import 'package:firebase_demo/screens/productScreens/clothingGridView.dart';
 import 'package:flutter/material.dart';
 
 class Clothing extends StatelessWidget {
@@ -6,6 +7,14 @@ class Clothing extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.white,
+        leading: IconButton(
+            icon: Icon(
+              Icons.arrow_back_ios,
+              color: Colors.grey,
+            ),
+            onPressed: () {
+              Navigator.pop(context);
+            }),
         elevation: 0,
         title: Text(
           'Clothing',
@@ -14,6 +23,7 @@ class Clothing extends StatelessWidget {
           ),
         ),
       ),
+      body: ClothingGridView(),
     );
   }
 }

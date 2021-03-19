@@ -9,7 +9,24 @@ class ItemPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text(name)),
+      appBar: AppBar(
+        backgroundColor: Colors.white,
+        leading: IconButton(
+            icon: Icon(
+              Icons.arrow_back_ios,
+              color: Colors.grey,
+            ),
+            onPressed: () {
+              Navigator.pop(context);
+            }),
+        elevation: 0,
+        title: Text(
+          name,
+          style: TextStyle(
+            color: Colors.grey,
+          ),
+        ),
+      ),
       body: Column(
         children: [
           Hero(
