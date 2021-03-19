@@ -27,6 +27,7 @@ class ItemPage extends StatelessWidget {
           ),
         ),
       ),
+      backgroundColor: Colors.white,
       body: Center(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
