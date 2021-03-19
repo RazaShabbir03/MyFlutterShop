@@ -1,20 +1,18 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:firebase_demo/screens/cart.dart';
 import 'package:flutter/material.dart';
 
-class ItemPage extends StatefulWidget {
+class CartView extends StatefulWidget {
   final String name;
   final String image;
   final double price;
   final int index;
-  ItemPage(this.name, this.price, this.image, this.index);
-
+  CartView(this.name, this.price, this.image, this.index);
   @override
-  _ItemPageState createState() => _ItemPageState();
+  _CartViewState createState() => _CartViewState();
 }
 
-class _ItemPageState extends State<ItemPage> {
+class _CartViewState extends State<CartView> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -30,13 +28,12 @@ class _ItemPageState extends State<ItemPage> {
             }),
         elevation: 0,
         title: Text(
-          widget.name,
+          'Cart',
           style: TextStyle(
             color: Colors.grey,
           ),
         ),
       ),
-      backgroundColor: Colors.white,
       body: Center(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
@@ -48,23 +45,8 @@ class _ItemPageState extends State<ItemPage> {
             ),
             Text('${widget.price.toString()} Rs.'),
             ElevatedButton(
-              onPressed: () {
-                setState(() async {
-                  FirebaseFirestore firestore = FirebaseFirestore.instance;
-                  final User user = await FirebaseAuth.instance.currentUser;
-                  firestore
-                      .collection('Users')
-                      .doc(user.uid)
-                      .collection('Cart')
-                      .doc()
-                      .set({
-                    'name': widget.name,
-                    'price': widget.price,
-                    'image': widget.image,
-                  });
-                });
-              },
-              child: Text('Add to cart'),
+              onPressed: () {},
+              child: Text('Remove from cart'),
             )
           ],
         ),

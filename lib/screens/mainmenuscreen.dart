@@ -1,5 +1,6 @@
 import 'package:carousel_pro/carousel_pro.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:firebase_demo/screens/cart.dart';
 import 'package:firebase_demo/screens/itempage.dart';
 import 'package:firebase_demo/screens/mainMenuGrid.dart';
 import 'package:firebase_demo/screens/productScreens/Clothing.dart';
@@ -63,7 +64,17 @@ class _MainMenuScreenState extends State<MainMenuScreen>
             onPressed: () async {
               await _auth.signOut();
             },
-          )
+          ),
+          IconButton(
+            color: Colors.grey,
+            icon: Icon(Icons.shopping_cart),
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => Cart()),
+              );
+            },
+          ),
         ],
       ),
       backgroundColor: Colors.white,
