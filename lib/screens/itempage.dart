@@ -27,14 +27,22 @@ class ItemPage extends StatelessWidget {
           ),
         ),
       ),
-      body: Column(
-        children: [
-          Hero(
-            tag: 'tagImage$index',
-            child: Image.network(image),
-          ),
-          Text(price.toString()),
-        ],
+      body: Center(
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.center,
+          mainAxisAlignment: MainAxisAlignment.spaceAround,
+          children: [
+            Hero(
+              tag: 'tagImage$index',
+              child: Image.network(image),
+            ),
+            Text('${price.toString()} Rs'),
+            ElevatedButton(
+              onPressed: () {},
+              child: Text('Add to cart'),
+            )
+          ],
+        ),
       ),
     );
   }
