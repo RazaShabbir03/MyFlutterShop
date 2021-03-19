@@ -37,7 +37,7 @@ class ItemPage extends StatelessWidget {
               tag: 'tagImage$index',
               child: Image.network(image),
             ),
-            Text('${price.toString()} Rs'),
+            Text('${price.toString()} Rs.'),
             ElevatedButton(
               onPressed: () {},
               child: Text('Add to cart'),
