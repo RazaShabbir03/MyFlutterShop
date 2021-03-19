@@ -2,13 +2,13 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_demo/screens/itempage.dart';
 import 'package:flutter/material.dart';
 
-class MainMenuScreen2 extends StatelessWidget {
+class GroceriesGridView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return StreamBuilder(
       stream: FirebaseFirestore.instance
           .collection('admin-listings')
-          .doc('flash-sales')
+          .doc('grocery-details')
           .collection('details')
           .snapshots(),
       builder: (BuildContext context, snapshot) {
@@ -64,5 +64,6 @@ class MainMenuScreen2 extends StatelessWidget {
         );
       },
     );
+    ;
   }
 }

@@ -1,3 +1,4 @@
+import 'package:firebase_demo/screens/productScreens/groceriesGridView.dart';
 import 'package:flutter/material.dart';
 
 class Groceries extends StatelessWidget {
@@ -6,6 +7,14 @@ class Groceries extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.white,
+        leading: IconButton(
+            icon: Icon(
+              Icons.arrow_back_ios,
+              color: Colors.grey,
+            ),
+            onPressed: () {
+              Navigator.pop(context);
+            }),
         elevation: 0,
         title: Text(
           'Groceries',
@@ -14,6 +23,8 @@ class Groceries extends StatelessWidget {
           ),
         ),
       ),
+      backgroundColor: Colors.white,
+      body: GroceriesGridView(),
     );
   }
 }

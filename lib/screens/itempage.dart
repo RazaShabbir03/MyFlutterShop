@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 class ItemPage extends StatelessWidget {
   final String name;
   final String image;
-  final int price;
+  final double price;
   final int index;
   ItemPage(this.name, this.price, this.image, this.index);
   @override
