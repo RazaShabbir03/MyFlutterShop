@@ -62,7 +62,24 @@ class _CartState extends State<Cart> {
           ),
         ),
       ),
-      body: Column(children: [CartGridView(), Text("Total: $sum")]),
+      body:
+          Column(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
+        CartGridView(),
+        Padding(
+            padding: const EdgeInsets.all(15.0),
+            child: Container(
+                width: double.infinity,
+                decoration: BoxDecoration(
+                  color: Colors.lightBlue,
+                  borderRadius: BorderRadius.circular(25),
+                ),
+                padding: EdgeInsets.all(25),
+                child: Text("Total: ${sum.toInt()} Rupees",
+                    style: TextStyle(
+                      fontWeight: FontWeight.bold,
+                      fontSize: 18,
+                    ))))
+      ]),
     );
   }
 }
