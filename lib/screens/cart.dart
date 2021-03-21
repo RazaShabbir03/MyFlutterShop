@@ -2,6 +2,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_demo/models/cartItems.dart';
 import 'package:firebase_demo/screens/cartGridView.dart';
+import 'package:firebase_demo/screens/mainmenuscreen.dart';
 import 'package:flutter/material.dart';
 
 class Cart extends StatefulWidget {
@@ -29,7 +30,8 @@ class _CartState extends State<Cart> {
               color: Colors.grey,
             ),
             onPressed: () {
-              Navigator.pop(context);
+              Navigator.of(context).pushReplacement(new MaterialPageRoute(
+                  builder: (BuildContext context) => MainMenuScreen()));
             }),
         elevation: 0,
         title: Text(
