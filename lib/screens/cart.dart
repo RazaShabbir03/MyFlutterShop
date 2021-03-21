@@ -39,7 +39,7 @@ class _CartState extends State<Cart> {
           ),
         ),
       ),
-      body: CartGridView(),
+      body: Column(children: [CartGridView(), Text("Total: ")]),
     );
   }
 }

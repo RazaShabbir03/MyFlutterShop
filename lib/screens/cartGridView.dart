@@ -1,6 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_demo/screens/cartView.dart';
+import 'package:firebase_demo/screens/deleteCart.dart';
 import 'package:firebase_demo/screens/itempage.dart';
 import 'package:flutter/material.dart';
 
@@ -49,18 +50,23 @@ class CartGridView extends StatelessWidget {
                                 )),
                       );
                     },
-                    child: ListView(physics: ScrollPhysics(), children: [
-                      Hero(
-                        tag: 'tagImage$index',
-                        child: Image.network(
-                          "${document[index].data()["image"]}",
-                          height: 150,
+                    child: Stack(children: [
+                      ListView(physics: ScrollPhysics(), children: [
+                        Hero(
+                          tag: 'tagImage$index',
+                          child: Image.network(
+                            "${document[index].data()["image"]}",
+                            height: 150,
+                          ),
                         ),
-                      ),
-                      Center(
-                          child:
-                              Text("Price ${document[index].data()["price"]}")),
-                      // Text("Hello"),
+                        Center(
+                            child: Text(
+                                "Price ${document[index].data()["price"]}")),
+                        // Text(
+                        //     '${document[index].reference.documentID.toString()}')
+                        // Text("Hello"),
+                      ]),
+                      DeleteCartItems(index),
                     ]),
                   ),
                 );
