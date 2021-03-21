@@ -16,11 +16,32 @@ class Cart extends StatefulWidget {
   _CartState createState() => _CartState();
 }
 
+final User user = FirebaseAuth.instance.currentUser;
+double sum = 0;
+
 class _CartState extends State<Cart> {
   final List<CartItems> cartItems = [];
+  Future<double> queryValues() async {
+    double total = 0.0;
+
+    await FirebaseFirestore.instance
+        .collection('Users')
+        .doc(user.uid)
+        .collection('Cart')
+        .get()
+        .then((sums) => sums.docs.forEach((value) {
+              total = total + value.data()['price'];
+            }))
+        .then((value) => setState(() => sum = total));
+
+    return total;
+  }
+
+  //Future<double> phoneOfPatient =
 
   @override
   Widget build(BuildContext context) {
+    queryValues();
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.white,
@@ -41,7 +62,7 @@ class _CartState extends State<Cart> {
           ),
         ),
       ),
-      body: Column(children: [CartGridView(), Text("Total: ")]),
+      body: Column(children: [CartGridView(), Text("Total: $sum")]),
     );
   }
 }

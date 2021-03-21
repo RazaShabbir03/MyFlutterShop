@@ -5,10 +5,16 @@ import 'package:firebase_demo/screens/deleteCart.dart';
 import 'package:firebase_demo/screens/itempage.dart';
 import 'package:flutter/material.dart';
 
-class CartGridView extends StatelessWidget {
+class CartGridView extends StatefulWidget {
+  @override
+  _CartGridViewState createState() => _CartGridViewState();
+}
+
+class _CartGridViewState extends State<CartGridView> {
   @override
   Widget build(BuildContext context) {
     final User user = FirebaseAuth.instance.currentUser;
+    double sum = 0;
     print(user);
     return StreamBuilder(
       stream: FirebaseFirestore.instance
@@ -23,6 +29,7 @@ class CartGridView extends StatelessWidget {
           );
         }
         var document = snapshot.data.docs;
+
         return Padding(
           padding: const EdgeInsets.all(10.0),
           child: GridView.builder(
@@ -62,6 +69,7 @@ class CartGridView extends StatelessWidget {
                         Center(
                             child: Text(
                                 "Price ${document[index].data()["price"]}")),
+
                         // Text(
                         //     '${document[index].reference.documentID.toString()}')
                         // Text("Hello"),
