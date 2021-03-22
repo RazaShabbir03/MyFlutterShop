@@ -35,6 +35,17 @@ class _ItemPageState extends State<ItemPage> {
             color: Colors.grey,
           ),
         ),
+        actions: [
+          IconButton(
+            icon: Icon(Icons.shopping_cart, color: Colors.grey),
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => Cart()),
+              );
+            },
+          )
+        ],
       ),
       backgroundColor: Colors.white,
       body: Center(

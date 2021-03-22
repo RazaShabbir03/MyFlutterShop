@@ -43,41 +43,45 @@ class _CartGridViewState extends State<CartGridView> {
                 childAspectRatio: MediaQuery.of(context).size.height / 800,
               ),
               itemBuilder: (context, index) {
-                return Card(
-                  child: GestureDetector(
-                    onTap: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) => CartView(
-                                  document[index].data()["name"],
-                                  document[index].data()["price"].toDouble(),
-                                  document[index].data()["image"],
-                                  index,
-                                )),
-                      );
-                    },
-                    child: Stack(children: [
-                      ListView(physics: ScrollPhysics(), children: [
-                        Hero(
-                          tag: 'tagImage$index',
-                          child: Image.network(
-                            "${document[index].data()["image"]}",
-                            height: 150,
+                if (document[index].data()["name"] == null) {
+                  return Text('There are $index items in cart');
+                } else {
+                  return Card(
+                    child: GestureDetector(
+                      onTap: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => CartView(
+                                    document[index].data()["name"],
+                                    document[index].data()["price"].toDouble(),
+                                    document[index].data()["image"],
+                                    index,
+                                  )),
+                        );
+                      },
+                      child: Stack(children: [
+                        ListView(physics: ScrollPhysics(), children: [
+                          Hero(
+                            tag: 'tagImage$index',
+                            child: Image.network(
+                              "${document[index].data()["image"]}",
+                              height: 150,
+                            ),
                           ),
-                        ),
-                        Center(
-                            child: Text(
-                                "Price ${document[index].data()["price"]}")),
+                          Center(
+                              child: Text(
+                                  "Price ${document[index].data()["price"]}")),
 
-                        // Text(
-                        //     '${document[index].reference.documentID.toString()}')
-                        // Text("Hello"),
+                          // Text(
+                          //     '${document[index].reference.documentID.toString()}')
+                          // Text("Hello"),
+                        ]),
+                        DeleteCartItems(index),
                       ]),
-                      DeleteCartItems(index),
-                    ]),
-                  ),
-                );
+                    ),
+                  );
+                }
               }),
         );
       },

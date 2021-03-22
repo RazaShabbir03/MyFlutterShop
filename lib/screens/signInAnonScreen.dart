@@ -1,3 +1,4 @@
+import 'package:firebase_demo/screens/mainmenuscreen.dart';
 import 'package:firebase_demo/screens/signUp.dart';
 import 'package:firebase_demo/services/auth.dart';
 import 'package:flutter/material.dart';
@@ -21,7 +22,9 @@ class _SignInAnonScreenState extends State<SignInAnonScreen> {
             body: Center(child: CircularProgressIndicator()),
           )
         : Scaffold(
-            appBar: AppBar(),
+            appBar: AppBar(
+              automaticallyImplyLeading: false,
+            ),
             body:
                 Column(mainAxisAlignment: MainAxisAlignment.center, children: [
               Center(child: Text('Sign In')),

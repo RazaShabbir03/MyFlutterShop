@@ -6,6 +6,7 @@ import 'package:firebase_demo/screens/mainMenuGrid.dart';
 import 'package:firebase_demo/screens/productScreens/Clothing.dart';
 import 'package:firebase_demo/screens/productScreens/groceries.dart';
 import 'package:firebase_demo/screens/productScreens/houseHold.dart';
+import 'package:firebase_demo/screens/signInAnonScreen.dart';
 import 'package:flutter/material.dart';
 
 class MainMenuScreen extends StatefulWidget {

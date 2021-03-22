@@ -75,10 +75,7 @@ class _CartViewState extends State<CartView> {
                           .then((snapshot) {
                         snapshot.docs.first.reference.delete();
                         setState(() {
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(builder: (context) => Cart()),
-                          );
+                          Navigator.pop(context);
                         });
                       });
                     },
